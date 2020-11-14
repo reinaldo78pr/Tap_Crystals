@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/prototype_crystal.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Crystal.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
+rough = true
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -14,6 +19,14 @@ animations = [ {
 extents = Vector2( 54.2822, 55 )
 
 [node name="Crystal" type="RigidBody2D"]
+modulate = Color( 0.0392157, 0.658824, 0.960784, 1 )
+input_pickable = true
+mass = 10.0
+physics_material_override = SubResource( 3 )
+gravity_scale = 9.8
+contacts_reported = 2
+contact_monitor = true
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
